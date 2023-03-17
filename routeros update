@@ -1,0 +1,9 @@
+routeros update
+#=========#=======#====
+:if ([/system package update get status] = "New version is available") do={
+:log warning "System package update is available";
+/system package update install;
+:delay 10:
+:log warning "reboot";
+/system reboot} else={:log warning "No System package update is available"}
+:log warning "END"
