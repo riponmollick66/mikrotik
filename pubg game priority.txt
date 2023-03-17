@@ -1,0 +1,9 @@
+/ip firewall mangle
+add action=mark-packet chain=prerouting new-packet-mark=PING passthrough=no protocol=icmp
+add action=mark-connection chain=prerouting dst-port=17000,3013,9030-9031,8000-8999,10000-10999,20000-20999 new-connection-mark=PUBG passthrough=yes protocol=udp
+add action=mark-connection chain=prerouting dst-port=17500,18081,8013,15692 new-connection-mark=PUBG passthrough=yes protocol=tcp
+add action=mark-packet chain=prerouting connection-mark=PUBG new-packet-mark=PUBG passthrough=no
+
+/queue simple
+add disabled=no max-limit=50M/50M name=PING packet-marks=PING priority=1/1 queue=default/default target=""
+add disabled=no max-limit=200M/200M name=PUBG packet-marks=PUBG priority=1/1 queue=default/default target=""
