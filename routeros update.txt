@@ -1,5 +1,5 @@
-routeros update
-#====#=======#===
+# routeros update
+#====#=======#====
 :if ([/system package update get status] = "New version is available") do={
 :log warning "System package update is available";
 /system package update install;
