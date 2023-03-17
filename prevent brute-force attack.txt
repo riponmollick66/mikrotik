@@ -1,0 +1,10 @@
+/ip firewall filter
+add action=jump chain=input dst-port=8291,139,445 in-interface=INTERNET-IN jump-target=BruteForce protocol=tcp
+add action=add-src-to-address-list address-list=BruteForce address-list-timeout=2w1d chain=BruteForce connection-state=new src-address-list=BruteForce_Stage3
+add action=add-src-to-address-list address-list=BruteForce_Stage3 address-list-timeout=1m chain=BruteForce connection-state=new src-address-list=BruteForce_Stage2
+add action=add-src-to-address-list address-list=BruteForce_Stage2 address-list-timeout=1m chain=BruteForce connection-state=new src-address-list=BruteForce_Stage1
+add action=add-src-to-address-list address-list=BruteForce_Stage1 address-list-timeout=1m chain=BruteForce connection-state=new
+add action=return chain=BruteForce
+
+/ip firewall raw
+add action=drop chain=prerouting src-address-list=BruteForce
