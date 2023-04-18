@@ -6,6 +6,6 @@
 
 # send to email
 #=====#====#=====
-/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " system backup " . [/system clock get time]) file=system.backup
-/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " partial-backup " . [/system clock get time]) file=partial-backup.rsc
-/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " logs backup " . [/system clock get time]) file=logs.txt
+/tool e-mail send to=youremail@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " system backup " . [/system clock get time]) file=system.backup
+/tool e-mail send to=youremail@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " partial-backup " . [/system clock get time]) file=partial-backup.rsc
+/tool e-mail send to=youremail@gmail.com subject=RIPON-ROUTER body=([/system clock get date] . " logs backup " . [/system clock get time]) file=logs.txt
