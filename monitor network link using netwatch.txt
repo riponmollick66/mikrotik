@@ -1,0 +1,9 @@
+# Up
+======
+;log info "OpenWRT_tp-link is Up"
+/tool e-mail send to=riponmollick66@gmail.com subject="OpenWRT_tp-link is Up"
+
+# Down
+=======
+;log error "OpenWRT_tp-link is Down"
+/tool e-mail send to=riponmollick66@gmail.com subject="OpenWRT_tp-link is Down" 

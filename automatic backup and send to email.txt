@@ -1,0 +1,15 @@
+backup
+========
+/system backup save name="$[/system identity get name]_System"
+/export file="$[/system identity get name]_Partial-Backup"
+log print file="$[/system identity get name]_Log-Backup"
+:delay 10s
+:log warning "Create backup successful"
+
+send to email
+===============
+/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER_BackUp file="$[/system identity get name]_System"
+/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER_BackUp file="$[/system identity get name]_Partial-Backup"
+/tool e-mail send to=riponmollick66@gmail.com subject=RIPON-ROUTER_BackUp file="$[/system identity get name]_Log-Backup"
+:delay 10s
+:log warning "Send backup successful"
