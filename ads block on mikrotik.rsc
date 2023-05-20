@@ -90,6 +90,3 @@ add address=127.0.0.1 name=ads2.msads.net
 add address=127.0.0.1 name=a.ads2.msads.net
 add address=127.0.0.1 name=b.ads2.msads.net
 
-/ip dns set allow-remote-requests=yes
-/ip firewall filter add chain=input dst-port=53 in-interface=ether1 protocol=udp action=drop
-
